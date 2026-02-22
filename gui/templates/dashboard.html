@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex Mission Control</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #e2e8f0;
+            --card-bg: #1e293b;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2, h3 { color: white; }
+
+        .container {
+            max_width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .task-item {
+            padding: 10px;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            justify_content: space-between;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .status-pending { background-color: #64748b; }
+        .status-implementing { background-color: var(--accent); }
+        .status-qa_passed { background-color: var(--success); }
+        .status-qa_failed { background-color: var(--error); }
+
+        .actions {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover { opacity: 0.9; }
+
+    </style>
+</head>
+<body>
+    <h1>Codex Mission Control</h1>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Active Tasks</h2>
+            <ul class="task-list">
+                {% for task in queue.queue %}
+                <li class="task-item">
+                    <span>{{ task.feature_id }}</span>
+                    <span class="status-badge status-{{ task.status }}">{{ task.status }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>System Progress</h2>
+            <div hx-get="/logs" hx-trigger="load, every 2s">
+                Loading logs...
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Features</h2>
+            <ul>
+                {% for feature in features.features %}
+                <li>
+                    <strong>{{ feature.id }}</strong>: {{ feature.status }}
+                    <br><small>{{ feature.description }}</small>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="card actions">
+            <h2>Actions</h2>
+            <button _="on click tell #logs call log('Action Triggered')">Trigger QA Audit</button>
+        </div>
+    </div>
+</body>
+</html>

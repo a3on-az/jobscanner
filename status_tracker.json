@@ -1,0 +1,73 @@
+{
+  "project": "Vegas Rapid Hire Automation",
+  "location_focus": "Las Vegas, NV",
+  "last_updated": "2026-02-16",
+  "phase": {
+    "phase_1_infrastructure_setup": "in_progress",
+    "phase_2_autonomous_job_hunting": "not_started",
+    "phase_3_tailored_application": "not_started",
+    "phase_4_communication_loop": "not_started"
+  },
+  "candidates": [
+    {
+      "candidate_name": "Richard Herrera",
+      "candidate_email": "LVRIchMade@yahoo.com",
+      "candidate_phone": "5599076445",
+      "target_roles": [
+        "Security Guard"
+      ],
+      "resume_file": "resumes/RHerrera Resume.docx",
+      "resume_readable": true,
+      "contact_check": {
+        "email_present": true,
+        "phone_present": true,
+        "notes": "Dedicated candidate Yahoo email and phone number confirmed."
+      },
+      "applications": []
+    },
+    {
+      "candidate_name": "Christine Gonzales",
+      "candidate_email": "LVCGonzales@yahoo.com",
+      "candidate_phone": "7027468186",
+      "target_roles": [
+        "Housekeeping"
+      ],
+      "resume_file": "resumes/Christine_Gonzales_Resume (2).docx",
+      "resume_readable": true,
+      "contact_check": {
+        "email_present": true,
+        "phone_present": true,
+        "notes": "Dedicated candidate Yahoo email and phone number confirmed."
+      },
+      "applications": []
+    }
+  ],
+  "pipeline_targets": {
+    "security_focus": {
+      "roles": [
+        "Security Guard",
+        "Casino Security Officer",
+        "Security Officer"
+      ],
+      "compliance_requirements": [
+        "PILB work card preferred/required"
+      ]
+    },
+    "housekeeping_focus": {
+      "roles": [
+        "Housekeeper",
+        "Room Attendant",
+        "EVS Attendant"
+      ]
+    },
+    "company_focus": [
+      "MGM Resorts",
+      "Caesars Entertainment",
+      "Wynn Resorts"
+    ]
+  },
+  "artifacts": {
+    "first_5_job_matches": "artifacts/first5_job_matches.json"
+  },
+  "blocking_issues": []
+}

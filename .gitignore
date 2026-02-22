@@ -1,0 +1,51 @@
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python caches/build
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Local config/secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Logs/runtime
+*.log
+*.pid
+
+# Model weights / large artifacts
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+*.tflite
+models/
+weights/
+checkpoints/
+cache/
+
+# Keep harnesscodex as its own repository
+harnesscodex/
